@@ -9,12 +9,31 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {# <h1>Hello {{ controller_name }}! ✅</h1> #}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/Tristan/Documents/Exercicis programacio/symfony/demo02/src/Controller/MessageController.php'|file_link(0) }}">src/Controller/MessageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/Tristan/Documents/Exercicis programacio/symfony/demo02/templates/message/index.html.twig'|file_link(0) }}">templates/message/index.html.twig</a></code></li>
-    </ul>
+    <h1> Welcome to Messgr:</h1>
+
+    {% for message in messages %}
+    <div> 
+        <span style="font-weight: bold;"> Author: </span>
+        {{message.name}} 
+    </div>
+    <div> 
+        <div style="font-weight: bold;"> Message: </div>
+        {{message.message}} 
+    </div>
+    <hr>
+    {% endfor %}
+    <br> 
+    {% set formVisibility = 'visibility:hidden' %}
+
+    {% set foo %}
+    <div id="pagination">
+        
+    </div>
+{% endset %}
+    <div style="{{formVisibility}};">
+        {{ form(form) }}
+    <div>
 </div>
 {% endblock %}
